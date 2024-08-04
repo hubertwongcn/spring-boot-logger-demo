@@ -10,7 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * 主要用于处理非HTTP request的日志
+ * 主要用于处理非HTTP request的日志<p>
+ * TODO 还未验证
  *
  * @author hubertwong
  * @since 2024/8/4 16:20

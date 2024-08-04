@@ -16,3 +16,5 @@ This is a dynamic management AppLogger Demo to demonstrate how to use AppLogger 
 5. request `curl --location 'http://127.0.0.1:8080/api/users/2' \
    --header 'App-Config-Name: app1'`, then you will see output like `for example: log info ...Received request to get user with id: 1 with config: app1; BltAppLogger: BltAppLogger(level=ERROR, format=TEXT)
    for example: log info ...get user: User(id=1, username=hubert, email=hubert@abc.com); BltAppLogger: BltAppLogger(level=ERROR, format=TEXT)` on the console
+
+![image-20240804170429798](https://cdn.jsdelivr.net/gh/HubertWongCN/image_host/img/202408041704855.png)
