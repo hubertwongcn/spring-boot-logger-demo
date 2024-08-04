@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 /**
  * @author hubertwong
  * @since 2024/8/4 11:56
@@ -29,10 +31,7 @@ public class AppLoggerFactory {
 
     private AppLogger createAppLogger(String configName) {
         AppLoggerProperties.LoggerConfig config = appLoggerProperties.getConfigs().get(configName);
-        if (config == null) {
-            // TODO set default config
-            config = appLoggerProperties.getConfigs().get("default");
-        }
+        config = Objects.nonNull(config) ? config : appLoggerProperties.getConfigs().get("default");
         return BltAppLogger.getAppLoggerFromProp(config.getLevel(), config.getFormat());
     }
 

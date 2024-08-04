@@ -12,6 +12,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
+ * AppLogger Proxy
+ *
  * @author hubertwong
  * @since 2024/8/4 15:42
  */
@@ -28,6 +30,7 @@ public class AppLoggerProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         AppLogger logger = AppLoggerContext.getLogger();
+        // If logger is null, use default logger
         if (logger == null) {
             logger = appLoggerFactory.getAppLogger("default");
         }

@@ -7,9 +7,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 /**
+ * AppLogger Interceptor
+ *
  * @author hubertwong
  * @since 2024/8/4 15:46
  */
@@ -21,10 +24,10 @@ public class AppLoggerInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String configName = request.getHeader("App-Config-Name");
-        if  (configName != null) {
-            AppLogger logger = appLoggerFactory.getAppLogger(configName);
-            AppLoggerContext.setLogger(logger);
-        }
+        // TODO set default config name
+        configName = StringUtils.hasText(configName) ? configName : "default";
+        AppLogger logger = appLoggerFactory.getAppLogger(configName);
+        AppLoggerContext.setLogger(logger);
         return true;
     }
 

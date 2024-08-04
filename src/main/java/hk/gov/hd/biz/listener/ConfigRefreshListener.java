@@ -7,6 +7,8 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 /**
+ * Config Refresh Listener
+ *
  * @author hubertwong
  * @since 2024/8/4 15:38
  */

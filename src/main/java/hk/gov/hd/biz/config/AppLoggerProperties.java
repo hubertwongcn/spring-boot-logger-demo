@@ -20,7 +20,6 @@ import java.util.concurrent.ConcurrentHashMap;
 @SpringBootConfiguration
 @ConfigurationProperties(prefix = "applogger")
 @Validated
-//@RefreshScope
 public class AppLoggerProperties {
     @NotEmpty
     private Map<String, LoggerConfig> configs = new ConcurrentHashMap<>();
