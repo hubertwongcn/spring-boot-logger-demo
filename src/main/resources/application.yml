@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+
+  cloud:
+    # TODO config Open Shift configmap
+    kubernetes:
+      config:
+        name: applogger-config
+        namespace: default
+        sources:
+          - name: applogger-config
+      reload:
+        enabled: true
+        mode: polling
+        period: 30000

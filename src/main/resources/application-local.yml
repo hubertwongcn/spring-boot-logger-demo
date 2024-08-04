@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: AppLogger-Demo
+
+logging:
+  level:
+    hk.gov.hd.biz: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+applogger:
+  configs:
+    default:
+      level: INFO
+      format: JSON
+    app1:
+      level: ERROR
+      format: TEXT
+    app2:
+      level: WARM
+      format: XML
